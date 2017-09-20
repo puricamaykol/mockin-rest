@@ -1,12 +1,13 @@
-var express = require('express')
-var app = express()
+let express = require('express')
+let app = express()
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-var normalizedPath = require("path").join(__dirname, "resources");
+
+let normalizedPath = require("path").join(__dirname, "resources");
 
 require("fs").readdirSync(normalizedPath).forEach(file => {
 
@@ -103,7 +104,7 @@ require("fs").readdirSync(normalizedPath).forEach(file => {
 /**
 
 **/
-const port = 8002;
+const port = 8003;
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
